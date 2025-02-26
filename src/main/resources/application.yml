@@ -1,0 +1,42 @@
+# Spring Boot application configuration
+spring:
+  application:
+    name: ChatBotService  # Name of the application
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/MY_DB  # PostgreSQL connection URL
+    username: postgres  # PostgreSQL username
+    password: Reddy@2000  # PostgreSQL password
+    driver-class-name: org.postgresql.Driver  # PostgreSQL driver class
+
+  jpa:
+    hibernate:
+      ddl-auto: update  # Automatically update schema
+    show-sql: true  # Log SQL queries
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect  # PostgreSQL dialect
+
+  # Spring AI Configuration for Ollama
+  ai:
+    ollama:
+      base-url: http://localhost:11434  # Ensure Ollama is running locally
+      model: mistral  # Model to use
+    mistralai:
+      enabled: false  # Disables Mistral AI, avoiding API key issues
+#    mistral:
+#      api:
+#        key: YOUR_ACTUAL_API_KEY_HERE  # Replace with your actual Mistral API Key
+
+# Server Configuration
+server:
+  port: 8082  # Running port of the application
+
+# Logging Configuration
+#logging:
+#  level:
+#    root: INFO  # Default logging level
+#    org.springframework: DEBUG  # Debug logs for Spring
+#    patientsServs: DEBUG  # Debug logs for your application
+#  file:
+#    name: logs/ChatBotService.log  # Log file path
